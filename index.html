@@ -84,6 +84,12 @@ ol.ask b{font-weight:600}
 .lg{font-family:var(--display);fill:var(--pen);font-weight:700}
 .sb{font-family:var(--body);fill:var(--pen)}
 
+/* 필요성 */
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line)}
+.why>div{display:grid;gap:6px;align-content:start;padding:16px 0 18px;border-bottom:1px solid var(--line);min-width:0}
+.why h3{font-size:16.5px}
+.why p{font-size:14.5px}
+
 /* 레퍼런스와 팝업 플레이어 */
 .refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
 .ref{display:grid;gap:14px;align-content:start;min-width:0}
@@ -112,6 +118,7 @@ dialog.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
 
 @media (max-width:720px){
   .refs{grid-template-columns:minmax(0,1fr)}
+  .why{grid-template-columns:minmax(0,1fr)}
   .wrap{gap:44px;padding-block:28px 56px}
   .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sc{grid-template-columns:minmax(0,1fr);gap:12px}
@@ -130,6 +137,7 @@ dialog.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
   section{break-inside:auto} tr,figure,.two>div{break-inside:avoid}
   h2{break-after:avoid}
   .watch,.pl{display:none}
+  .why>div{break-inside:avoid}
 }
 </style>
 
@@ -213,6 +221,20 @@ dialog.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
     <div><dt>형식과 촬영</dt><dd>원장님 인터뷰, 치과 내 1일</dd></div>
     <div><dt>최종 납품</dt><dd>유튜브 업로드</dd></div>
   </dl>
+</section>
+
+<section>
+  <h2>왜 브랜딩 영상이 필요한가</h2>
+  <p>수원세브란스치과는 개원 직후라 아직 환자 후기도, 지역에서 쌓인 평판도 없습니다. 이 시기에 환자분이 병원을 고르는 근거는 대부분 홈페이지와 네이버 플레이스에서 보는 정보입니다. 브랜딩 영상은 그 자리에서 환자분이 원장님을 먼저 만나게 하는 역할을 합니다.</p>
+  <div class="why">
+    <div><h3>후기가 없는 시기의 신뢰</h3><p>개원 초기에는 리뷰와 입소문이 쌓이기 전입니다. 원장님이 어떤 사람이고 어떻게 진료하는지 직접 보여 주는 것이 첫 방문을 결정하게 하는 가장 확실한 정보입니다.</p></div>
+    <div><h3>가격 말고 선택할 이유</h3><p>임플란트는 금액이 크고 오래 쓰는 치료라, 가격을 보고 알아본 환자분도 마지막에는 누구에게 맡길지를 고민합니다. 할인 경쟁에만 기대면 병원 이미지와 수익성이 함께 낮아질 수 있어, 진료 경험과 철학으로 선택받을 근거가 필요합니다.</p></div>
+    <div><h3>의료광고 기준 안에서 할 수 있는 방법</h3><p>치료 후기, 다른 치과와의 비교, ‘최고’ 같은 표현은 광고에 쓸 수 없습니다. 원장님이 자신의 경험과 진료 방식을 직접 말하는 영상은 이 기준을 지키면서 신뢰를 전할 수 있습니다.</p></div>
+    <div><h3>글로는 전하기 어려운 이야기</h3><p>어린 시절 치아 외상, 종합병원 진료 경험, 자연치아를 먼저 살펴보는 원칙은 소개 문구 몇 줄로는 잘 전해지지 않습니다. 원장님의 목소리와 표정으로 들을 때 설득력이 생깁니다.</p></div>
+    <div><h3>첫 방문의 낯섦을 줄입니다</h3><p>진료실과 원장님을 미리 보고 오신 환자분은 처음 방문할 때 덜 긴장합니다. 특히 아이와 함께 오는 보호자분께는 소아 공간과 원장님의 태도를 미리 보여 드릴 수 있습니다.</p></div>
+    <div><h3>한 번 만들어 여러 곳에</h3><p>유튜브에 올린 영상은 홈페이지, 네이버 플레이스, 카페 홍보 글, 대기실 모니터에 그대로 쓸 수 있습니다. 인터뷰 촬영분으로 쇼츠도 따로 만들 수 있습니다.</p></div>
+  </div>
+  <p class="note">효과는 가오픈 이후 유튜브 조회 수, 홈페이지 영상 재생 수, 상담 때 "영상을 보고 왔다"는 응답 수로 확인합니다.</p>
 </section>
 
 <section>
