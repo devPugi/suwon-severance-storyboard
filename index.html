@@ -84,7 +84,34 @@ ol.ask b{font-weight:600}
 .lg{font-family:var(--display);fill:var(--pen);font-weight:700}
 .sb{font-family:var(--body);fill:var(--pen)}
 
+/* 레퍼런스와 팝업 플레이어 */
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.ref{display:grid;gap:14px;align-content:start;min-width:0}
+.poster{position:relative;display:block;width:100%;max-width:100%;aspect-ratio:16/9;padding:0;border:1px solid var(--line);background:#000;cursor:pointer;overflow:hidden}
+.poster img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+.poster:hover img{opacity:.85}
+.pl{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 2px 12px rgba(0,0,0,.25)}
+.pl::after{content:"";position:absolute;left:26px;top:20px;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #1B2730}
+.ref-tx{display:grid;gap:10px;min-width:0}
+.ref-hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.ref-hd span{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ref dl{display:grid;gap:4px}
+.ref dt{font-size:12.5px;color:var(--muted);margin-top:4px}
+.ref dd{margin:0;font-size:14.5px}
+.ref ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.watch{justify-self:start;font:inherit;font-size:14px;font-weight:600;color:var(--bg);background:var(--fg);border:0;padding:9px 18px 10px;cursor:pointer}
+.watch:hover{background:var(--accent)}
+.poster:focus-visible,.watch:focus-visible,.pclose:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+dialog.player{width:min(960px,calc(100vw - 32px));max-width:none;padding:0;border:0;background:#0E1418;color:#E5EBEE}
+dialog.player::backdrop{background:rgba(8,12,15,.82)}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 12px 10px 16px}
+.pbar strong{font-weight:600;font-size:14px;min-width:0}
+.pclose{font:inherit;font-size:13.5px;color:#E5EBEE;background:transparent;border:1px solid #4A5862;padding:5px 12px;cursor:pointer}
+.pclose:hover{background:#26323A}
+dialog.player video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+
 @media (max-width:720px){
+  .refs{grid-template-columns:minmax(0,1fr)}
   .wrap{gap:44px;padding-block:28px 56px}
   .spec{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sc{grid-template-columns:minmax(0,1fr);gap:12px}
@@ -102,6 +129,7 @@ ol.ask b{font-weight:600}
   table{font-size:12px}
   section{break-inside:auto} tr,figure,.two>div{break-inside:avoid}
   h2{break-after:avoid}
+  .watch,.pl{display:none}
 }
 </style>
 
@@ -183,7 +211,7 @@ ol.ask b{font-weight:600}
     <div><dt>본편</dt><dd>1분 35초, 씬 10개</dd></div>
     <div><dt>메인 화면용</dt><dd>15초, 무음 반복 재생</dd></div>
     <div><dt>형식과 촬영</dt><dd>원장님 인터뷰, 치과 내 1일</dd></div>
-    <div><dt>최종본 전달 목표</dt><dd>11월 22일(일)</dd></div>
+    <div><dt>최종 납품</dt><dd>유튜브 업로드</dd></div>
   </dl>
 </section>
 
@@ -199,6 +227,47 @@ ol.ask b{font-weight:600}
     <div class="a3"><b>21초</b>자연치아 보존</div>
     <div class="a4"><b>21초</b>전 연령 진료</div>
     <div class="a5"><b>8초</b>엔딩</div>
+  </div>
+</section>
+
+<section>
+  <h2>레퍼런스</h2>
+  <p>아래 두 편의 톤과 구성을 참고합니다. 썸네일이나 버튼을 누르면 영상이 팝업으로 재생됩니다. 팝업 영상은 확인용으로 화질을 낮췄습니다.</p>
+  <div class="refs">
+    <article class="ref">
+      <button type="button" class="poster" data-src="refs/seoul-ido.mp4" data-title="서울이도치과 브랜딩 영상 1부" aria-label="서울이도치과 브랜딩 영상 1부 재생"><img src="refs/seoul-ido.jpg" alt=""><span class="pl" aria-hidden="true"></span></button>
+      <div class="ref-tx">
+        <div class="ref-hd"><h3>서울이도치과 브랜딩 영상 1부</h3><span>3분 54초</span></div>
+        <dl>
+          <dt>참고할 점</dt>
+          <dd><ul>
+            <li>밝은 공간에서 앉아서 하는 인터뷰를 넓은 구도와 근접 구도로 번갈아 보여 줍니다. S1, S2, S4 인터뷰 촬영에 적용합니다.</li>
+            <li>따뜻한 베이지 톤과 창가 자연광을 우리 영상의 색 보정 기준으로 삼습니다.</li>
+            <li>공간 소품과 사인물을 짧게 끼워 넣어 호흡을 고릅니다. S3와 S10의 우유 잔 장면이 이 역할을 합니다.</li>
+          </ul></dd>
+          <dt>다르게 가는 점</dt>
+          <dd>여러 의료진이 차례로 등장하는 구성이지만, 이번 영상은 원장님 한 분의 이야기로 1분 35초 안에 마무리합니다.</dd>
+        </dl>
+        <button type="button" class="watch" data-src="refs/seoul-ido.mp4" data-title="서울이도치과 브랜딩 영상 1부">영상 보기</button>
+      </div>
+    </article>
+    <article class="ref">
+      <button type="button" class="poster" data-src="refs/kingdom.mp4" data-title="킹덤치과 브랜딩 영상" aria-label="킹덤치과 브랜딩 영상 재생"><img src="refs/kingdom.jpg" alt=""><span class="pl" aria-hidden="true"></span></button>
+      <div class="ref-tx">
+        <div class="ref-hd"><h3>킹덤치과 브랜딩 영상</h3><span>2분 6초</span></div>
+        <dl>
+          <dt>참고할 점</dt>
+          <dd><ul>
+            <li>원장님 한 분의 인터뷰 음성이 영상 전체를 이끌고, 짧은 문장마다 장면이 바뀝니다. 답변 편집 방식에 적용합니다.</li>
+            <li>모니터 영상을 보며 상담하는 장면과 치료 계획을 손으로 적는 근접 장면을 S5, S6에 적용합니다.</li>
+            <li>원장님의 다짐 한 문장과 로고로 끝납니다. S9 답변과 S10 엔딩의 흐름이 같습니다.</li>
+          </ul></dd>
+          <dt>다르게 가는 점</dt>
+          <dd>수술 장면과 환자 얼굴이 나오지만, 이번 영상은 치료 장면을 넣지 않고 환자 역은 직원이 얼굴 없이 맡습니다.</dd>
+        </dl>
+        <button type="button" class="watch" data-src="refs/kingdom.mp4" data-title="킹덤치과 브랜딩 영상">영상 보기</button>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -351,7 +420,7 @@ ol.ask b{font-weight:600}
       <tr><td>모바일</td><td class="nw">15초, 본편</td><td>위와 동일</td><td>핵심 피사체를 화면 중앙에 두고 촬영해 메인 영상의 세로 크롭이 가능하도록 합니다.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">외부 영상 서비스나 파일 규격은 홈페이지 제작사 사양을 받은 뒤 맞춥니다.</p>
+  <p class="note">최종본은 유튜브에 업로드하는 방식으로 납품하고, 홈페이지에는 유튜브 영상을 삽입합니다. 본편은 전체 공개, 메인 화면용 15초는 채널 목록에 노출되지 않도록 일부 공개로 올리는 것을 권합니다. 메인 화면용은 삽입 시 자동 재생, 음소거, 반복 설정이 필요하고 일부 모바일 환경에서는 자동 재생이 제한될 수 있어, 홈페이지 제작사와 적용 방식을 함께 확인합니다.</p>
 </section>
 
 <section>
@@ -367,7 +436,7 @@ ol.ask b{font-weight:600}
           <tr><td class="nw">11.16–11.18</td><td>이 중 하루 촬영. 인테리어 완료 후 진행</td></tr>
           <tr><td class="nw">11.20</td><td>1차 편집본 공유</td></tr>
           <tr><td class="nw">11.21</td><td>수정 의견 회신</td></tr>
-          <tr><td class="nw">11.22</td><td>최종본, 메인 화면용, 스틸 전달</td></tr>
+          <tr><td class="nw">11.22</td><td>본편과 메인 화면용 유튜브 업로드, 스틸 전달</td></tr>
           <tr><td class="nw">11.23</td><td>가오픈</td></tr>
         </tbody>
       </table></div>
@@ -419,9 +488,32 @@ ol.ask b{font-weight:600}
     <li><b>종합병원 경력을 어디까지 말할지 정해 주십시오.</b> 지금은 기관명 없이 "종합병원"으로만 표현했습니다. 기관명을 넣으려면 경력 증빙 확인이 필요합니다.</li>
     <li><b>인테리어 완료일과 촬영 가능일을 알려 주십시오.</b> 11월 16일부터 18일 사이 하루를 희망하며, 체어와 소아 공간이 완성된 상태여야 합니다.</li>
     <li><b>환자 역을 맡을 직원 한 분과 로고 파일을 준비해 주십시오.</b> 출연 직원께는 초상 사용 동의서를 받습니다.</li>
+    <li><b>영상을 올릴 유튜브 채널을 알려 주십시오.</b> 병원 채널이 있다면 업로드 권한(관리자 초대)을 부탁드리며, 없다면 개설을 함께 진행합니다.</li>
   </ol>
 </section>
 
 <footer class="foot">메디앤메디 전략기획팀 · 프레임은 구도 확인용 참고 이미지이며 실제 공간과 소품에 맞춰 촬영 시 조정합니다.</footer>
 </main>
+
+<dialog class="player" id="player" aria-labelledby="ptitle">
+  <div class="pbar"><strong id="ptitle"></strong><button type="button" class="pclose" id="pclose">닫기</button></div>
+  <video id="pvideo" controls playsinline preload="none"></video>
+</dialog>
+<script>
+(function(){
+  var dlg=document.getElementById('player'), v=document.getElementById('pvideo'), t=document.getElementById('ptitle');
+  function open(btn){
+    t.textContent=btn.getAttribute('data-title');
+    v.src=btn.getAttribute('data-src');
+    if(dlg.showModal){dlg.showModal();}else{dlg.setAttribute('open','');}
+    var p=v.play(); if(p&&p.catch){p.catch(function(){});}
+  }
+  function stop(){v.pause();v.removeAttribute('src');v.load();}
+  function shut(){stop();if(dlg.open){dlg.close();}}
+  document.querySelectorAll('[data-src]').forEach(function(b){b.addEventListener('click',function(){open(b);});});
+  document.getElementById('pclose').addEventListener('click',shut);
+  dlg.addEventListener('cancel',function(e){e.preventDefault();shut();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg){shut();}});
+})();
+</script>
 </body></html>
